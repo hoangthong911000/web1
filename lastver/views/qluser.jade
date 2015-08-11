@@ -1,0 +1,33 @@
+extends layoutadmin
+block tieude
+	|Quản Lý User
+block content
+	div(style='margin-bottom: 30px;')
+		.col-md-12(style='margin-bottom: 20px;')
+			a.btn.btn-primary(role='button', data-toggle='modal', data-target='#addProductModal')
+				i.fa.fa-plus
+				|  Thêm
+	.row
+		.col-md-12
+			table.table.table-hover
+				thead
+					tr
+						th ID
+						th UseName
+						th Pass
+						th Phân Quyền
+						th
+						th
+				tbody
+					each post in us
+						tr
+							td(style='text-align: center;') #{post.mauser}
+							td(style='text-align: center;') #{post.usename}
+							td(style='text-align: center;') #{post.pass}
+							td(style='text-align: center;') #{post.phanquyen}
+							td
+								a#btnDetele.btn.btn-danger.btn-xs(title='Xóa', role='button', data-del-iddel='@cim.ProID')
+									i.fa.fa-remove
+							td
+								a#btnEdit.btn.btn-success.btn-xs(title='Chỉnh Sửa', role='button', href='#')
+									i.fa.fa-pencil
